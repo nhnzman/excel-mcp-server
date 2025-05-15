@@ -497,7 +497,8 @@ async def run_server():
     try:
         logger.info(f"Starting Excel MCP server (files directory: {EXCEL_FILES_PATH})")
         mcp = create_mcp()  # ← 여기서 FastMCP 인스턴스 생성
-        logger.info("✅ Registered tools:\n%s", "\n".join(f"- {t}" for t in mcp.list_tools()))
+        tool_names = await mcp.list_tools()
+        logger.info("✅ Registered tools:\n%s", "\n".join(f"- {t}" for t in tool_names))
         await mcp.run_sse_async()
     except KeyboardInterrupt:
         logger.info("Server stopped by user")
