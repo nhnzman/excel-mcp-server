@@ -493,13 +493,15 @@ def create_mcp() -> FastMCP:
             raise
     return mcp
 
+mcp = create_mcp()  # 전역에서 FastMCP 인스턴스 생성
+app = mcp.app       # FastAPI 앱 객체 (mcpo / openwebui 연결용)
+
 def run_server():
     try:
         logger.info(f"Starting Excel MCP server (files directory: {EXCEL_FILES_PATH})")
-        mcp = create_mcp()  # ← 여기서 FastMCP 인스턴스 생성
-        # tool_names = mcp.list_tools()
-        # logger.info("✅ Registered tools:\n%s", "\n".join(f"- {t}" for t in tool_names))
-        mcp.run()
+        tool_names = mcp.list_tools()
+        logger.info("✅ Registered tools:\n%s", "\n".join(f"- {t}" for t in tool_names))
+        mcp.run_api()  # REST API 서버 실행
     except KeyboardInterrupt:
         logger.info("Server stopped by user")
         mcp.shutdown()
