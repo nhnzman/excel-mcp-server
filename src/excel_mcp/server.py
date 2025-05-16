@@ -493,6 +493,9 @@ def create_mcp() -> FastMCP:
             raise
     return mcp
 
+mcp = create_mcp()
+app = mcp.app
+
 def run_server():
     try:
         logger.info(f"Starting Excel MCP server (files directory: {EXCEL_FILES_PATH})")
