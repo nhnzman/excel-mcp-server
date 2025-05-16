@@ -7,7 +7,7 @@ def main():
         print("Excel MCP Server")
         print("---------------")
         print("Starting server... Press Ctrl+C to exit")
-        asyncio.run(run_server())
+        run_server()
     except KeyboardInterrupt:
         print("\nShutting down server...")
     except Exception as e:
