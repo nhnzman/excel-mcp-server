@@ -496,8 +496,8 @@ def create_mcp() -> FastMCP:
 def run_server():
     try:
         logger.info(f"Starting Excel MCP server (files directory: {EXCEL_FILES_PATH})")
-        tool_names = mcp.list_tools()
-        logger.info("✅ Registered tools:\n%s", "\n".join(f"- {t}" for t in tool_names))
+        # tool_names = mcp.list_tools()
+        # logger.info("✅ Registered tools:\n%s", "\n".join(f"- {t}" for t in tool_names))
         mcp.run_api()  # REST API 서버 실행
     except KeyboardInterrupt:
         logger.info("Server stopped by user")
