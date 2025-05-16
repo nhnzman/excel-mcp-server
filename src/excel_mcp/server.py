@@ -497,7 +497,7 @@ def run_server():
     try:
         logger.info(f"Starting Excel MCP server (files directory: {EXCEL_FILES_PATH})")
         mcp = create_mcp()
-        mcp.run_api(host="0.0.0.0", port=int(os.getenv("FASTMCP_PORT", 3002)))  # <- REST API 실행
+        mcp.run(host="0.0.0.0", port=int(os.getenv("FASTMCP_PORT", 3002)))
     except KeyboardInterrupt:
         logger.info("Server stopped by user")
         mcp.shutdown()
