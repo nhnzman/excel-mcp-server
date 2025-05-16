@@ -499,7 +499,7 @@ async def run_server():
         mcp = create_mcp()  # ← 여기서 FastMCP 인스턴스 생성
         tool_names = await mcp.list_tools()
         logger.info("✅ Registered tools:\n%s", "\n".join(f"- {t}" for t in tool_names))
-        await mcp.run_sse_async()
+        await mcp.run()
     except KeyboardInterrupt:
         logger.info("Server stopped by user")
         await mcp.shutdown()
