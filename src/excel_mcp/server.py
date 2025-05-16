@@ -493,9 +493,6 @@ def create_mcp() -> FastMCP:
             raise
     return mcp
 
-mcp = create_mcp()  # 전역에서 FastMCP 인스턴스 생성
-app = mcp.app       # FastAPI 앱 객체 (mcpo / openwebui 연결용)
-
 def run_server():
     try:
         logger.info(f"Starting Excel MCP server (files directory: {EXCEL_FILES_PATH})")
@@ -510,3 +507,6 @@ def run_server():
         raise
     finally:
         logger.info("Server shutdown complete")
+
+mcp = create_mcp()  # 전역에서 FastMCP 인스턴스 생성
+app = mcp.app       # FastAPI 앱 객체 (mcpo / openwebui 연결용)
