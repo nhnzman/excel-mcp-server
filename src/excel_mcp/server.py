@@ -3,7 +3,8 @@ import sys
 import os
 from typing import Any, List, Dict
 
-from mcp.server.fastmcp import FastMCP
+# from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 
 # Import exceptions
 from excel_mcp.exceptions import (
