@@ -493,7 +493,7 @@ def create_mcp() -> FastMCP:
             raise
     return mcp
 
-async def run_server():
+def run_server():
     try:
         logger.info(f"Starting Excel MCP server (files directory: {EXCEL_FILES_PATH})")
         mcp = create_mcp()  # ← 여기서 FastMCP 인스턴스 생성
