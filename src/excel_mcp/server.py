@@ -509,4 +509,4 @@ def run_server():
         logger.info("Server shutdown complete")
 
 mcp = create_mcp()  # 전역에서 FastMCP 인스턴스 생성
-app = mcp.app       # FastAPI 앱 객체 (mcpo / openwebui 연결용)
+app = mcp.api.app       # FastAPI 앱 객체 (mcpo / openwebui 연결용)
