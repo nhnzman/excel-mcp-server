@@ -498,7 +498,8 @@ def run_server():
     try:
         logger.info(f"Starting Excel MCP server (files directory: {EXCEL_FILES_PATH})")
         mcp = create_mcp()
-        mcp.run_api(host="0.0.0.0", port=int(os.getenv("FASTMCP_PORT", 3002)))
+        # mcp.run_api(host="0.0.0.0", port=int(os.getenv("FASTMCP_PORT", 3002)))
+        mcp.run()
     except KeyboardInterrupt:
         logger.info("Server stopped by user")
         mcp.shutdown()
